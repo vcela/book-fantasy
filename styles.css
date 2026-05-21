@@ -48,6 +48,26 @@
   --shadow-deep: 0 30px 80px -20px rgba(0,0,0,.7), 0 10px 30px -10px rgba(0,0,0,.6);
 }
 
+/* ─── Skip navigation ────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 9999;
+  padding: 10px 20px;
+  background: var(--ink-1);
+  color: var(--gold-2);
+  font-family: var(--f-display);
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold-line);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: none;
+}
+.skip-link:focus { left: 8px; }
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {

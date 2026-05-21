@@ -299,6 +299,20 @@ function initLanguageSwitcher() {
   });
 }
 
+function initSubmenus() {
+  document.querySelectorAll(".nav .has-submenu").forEach((item) => {
+    const trigger = item.querySelector("a[aria-haspopup]");
+    if (!trigger) return;
+    const setExpanded = (v) => trigger.setAttribute("aria-expanded", String(v));
+    item.addEventListener("mouseenter", () => setExpanded(true));
+    item.addEventListener("mouseleave", () => setExpanded(false));
+    item.addEventListener("focusin", () => setExpanded(true));
+    item.addEventListener("focusout", (e) => {
+      if (!item.contains(e.relatedTarget)) setExpanded(false);
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initReveal();
   initNavScroll();
@@ -307,4 +321,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initFlipbooks();
   initNewsletterForm();
   initLanguageSwitcher();
+  initSubmenus();
 });
